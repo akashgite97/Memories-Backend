@@ -4,6 +4,7 @@ const postMessageSchema = new mongoose.Schema({
   title: {
     type: String,
     trim: true,
+    required:true
   },
   message: String,
   creator: String,
