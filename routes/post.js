@@ -4,7 +4,7 @@ import { createPost, getPosts, getPost, deletePost, updatePost, likePost } from 
 const router = express.Router();
 
 //GET Post
-router.get('/', getPosts);
+router.get('/allPosts', getPosts);
 
 //GET: Single Post by ID
 router.get('/:id', getPost);
@@ -19,6 +19,6 @@ router.put('/update/:id', updatePost);
 router.delete('/delete/:id', deletePost);
 
 //Patch: Like Post Route
-router.patch('/:id/likes', likePost);
+router.patch('/:id/like', likePost);
 
 export default router;
