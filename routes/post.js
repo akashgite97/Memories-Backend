@@ -1,5 +1,6 @@
 import express from 'express';
 import { createPost, getPosts, getPost, deletePost, updatePost, likePost } from '../controllers/posts.js';
+import { isAuthenticated } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -10,15 +11,15 @@ router.get('/allPosts', getPosts);
 router.get('/:id', getPost);
 
 //POST: create Route
-router.post('/create', createPost);
+router.post('/create',isAuthenticated, createPost);
 
 //PUT: Update Route
-router.put('/update/:id', updatePost);
+router.put('/update/:id',isAuthenticated, updatePost);
 
 //Delete: Delete Route
-router.delete('/delete/:id', deletePost);
+router.delete('/delete/:id',isAuthenticated, deletePost);
 
 //Patch: Like Post Route
-router.patch('/:id/like', likePost);
+router.patch('/:id/like',isAuthenticated, likePost);
 
 export default router;
