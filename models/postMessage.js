@@ -8,10 +8,11 @@ const postMessageSchema = new mongoose.Schema({
   },
   message: String,
   creator: String,
+  name:String,
   tags: [String],
   image: String,
   likes: {
-    type: {String},
+    type: [String],
     default: [],
   },
   createdAt: {
